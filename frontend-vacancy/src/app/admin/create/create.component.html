@@ -1,0 +1,39 @@
+<div>
+    <br>
+    <mat-card>
+        <section class="mat-typography">
+            <h3 align="center">Create A New Vacancy</h3>
+        </section>
+        <mat-divider></mat-divider>
+        <br>
+        <div [formGroup]="createForm" class="create-form">
+            <mat-form-field class="field-full-width">
+                <mat-label>Job Id</mat-label>
+                <input matInput placeholder="Insert Job Id" formControlName="jobId" #jobId>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label>Job Title</mat-label>
+                <input matInput placeholder="Insert Job Title" formControlName="jobTitle" #jobTitle>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label>Company</mat-label>
+                <input matInput placeholder="Insert Company" formControlName="company" #company>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label>State</mat-label>
+                <input matInput placeholder="Insert State" formControlName="state" #state>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Close Date</mat-label>
+                <input matInput [matDatepicker]="closeDate">
+                <mat-datepicker-toggle matSuffix [for]="closeDate"></mat-datepicker-toggle>
+                <mat-datepicker #closeDate></mat-datepicker>
+              </mat-form-field>
+            <mat-divider></mat-divider>
+            <br><br>
+            <button mat-raised-button color="accent" routerLink="/list">Back</button>
+            <button mat-raised-button color="primary" type="submit" (click)="addVacancy(jobId.value, jobTitle.value, company.value, state.value, closeDate.id)" [disabled]="createForm.pristine || createForm.invalid">Save</button>
+        </div>
+    </mat-card>
+</div>
+

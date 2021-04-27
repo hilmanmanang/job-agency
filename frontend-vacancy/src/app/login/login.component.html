@@ -1,0 +1,18 @@
+<div class="bg">
+    <form class="form-signin" (submit)="loginUser($event)">
+        <h1 class="text-white">Admin Login</h1>
+        <h4 class="text-white"><b>AGENSI KERJA MALAYSIA</b></h4>
+        <mat-form-field>
+            <input matInput placeholder="Username" color="primary" class="form-control" type="text" id="inputText" required autofocus>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" color="primary" class="form-control" type="password" id="inputPassword" required autofocus>
+        </mat-form-field>
+        <div class="checkbox remember">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+          <button mat-raised-button color="primary" type="submit">Sign in</button> 
+      </form>
+    </div>

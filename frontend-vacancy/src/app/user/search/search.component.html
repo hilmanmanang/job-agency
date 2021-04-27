@@ -1,0 +1,124 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>MALAYSIA JOB AGENCY PORTAL</span>
+        <span>
+            <button mat-raised-button color="basic" routerLink="/login">Admin Login</button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer mode="side" opened>
+
+        <div class="container">
+            <span>
+                <img src="assets/image/telekom-malaysia-logo.jpg">
+            </span>
+            <br>
+            <b>No. 1 job agency in Malaysia. <br> What are you looking for?</b>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <div class="container">
+            <h5><b>Insert Job Position:</b></h5>
+            <mat-form-field>
+                <mat-label>Job Title</mat-label>
+                <input matInput [(ngModel)]="searchJobTitle">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Suggestion Job Title</mat-label>
+                <mat-select [(ngModel)]="searchJobTitle">
+                    <mat-option>None</mat-option>
+                    <mat-option value="Software Engineer">Software Engineer</mat-option>
+                    <mat-option value="Web Developer">Web Developer</mat-option>
+                    <mat-option value="Mobile">Mobile</mat-option>
+                    <mat-option value="Assistant Manager">Assistant Manager</mat-option>
+                    <mat-option value="Manager">Manager</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <br>
+            <h5><b>Insert Company:</b></h5>
+            <mat-form-field>
+                <mat-label>Company</mat-label>
+                <input matInput [(ngModel)]="searchCompany">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Suggestion Company</mat-label>
+                <mat-select [(ngModel)]="searchCompany">
+                    <mat-option>None</mat-option>
+                    <mat-option value="TM R&D">TM R&D</mat-option>
+                    <mat-option value="MENARA TM">MENARA TM</mat-option>
+                    <mat-option value="TM Penang">TM Penang</mat-option>
+                    <mat-option value="WEBE DIGITAL">WEBE DIGITAL</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <br>
+            <h5><b>Insert Preffered Location:</b></h5>
+            <mat-form-field>
+                <mat-label>State</mat-label>
+                <input matInput [(ngModel)]="searchState">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Suggestion State</mat-label>
+                <mat-select [(ngModel)]="searchState">
+                    <mat-option>None</mat-option>
+                    <mat-option value="Kuala Lumpur">Kuala Lumpur</mat-option>
+                    <mat-option value="Putrajaya">Putrajaya</mat-option>
+                    <mat-option value="Johor">Johor</mat-option>
+                    <mat-option value="Selangor">Selangor</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <br>
+            <h5><b>Availability:</b></h5>
+            <mat-form-field>
+                <mat-label>Job Status</mat-label>
+                <mat-select [(ngModel)]="searchStatus">
+                    <mat-option>None</mat-option>
+                    <mat-option value="Open">Open</mat-option>
+                    <mat-option value="Closed">Closed</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-drawer>
+    <mat-drawer-content>
+        <table>
+            <tr>
+                <td class="job-id-th"><b>Job Id</b></td>
+                <td class="job-title-th"><b>Job Title</b></td>
+                <td class="company-th"><b>Company</b></td>
+                <td class="state-th"><b>State</b></td>
+                <td class="close-date-th"><b>Close Date</b></td>
+                <td class="status-th"><b>Status</b></td>
+                <td class="apply-th"><b>Apply</b></td>
+            </tr>
+        </table>
+        <table>
+            <tr *ngFor="let element of vacancies | jobTitleFilter:searchJobTitle | companyFilter:searchCompany | stateFilter:searchState | statusFilter:searchStatus">
+                <td class="job-id-table">
+                    {{element.jobId}}
+                </td>
+                <td class="job-title-table">
+                    {{element.jobTitle}}
+                </td>
+                <td class="company-table">
+                    {{element.company}}
+                </td>
+                <td class="state-table">
+                    {{element.state}}
+                </td>
+                <td class="close-date-table">
+                    {{element.closeDate | date}}
+                </td>
+                <td class="status-table">
+                    <div *ngIf="dateStatus; then openBlock; else closeBlock"></div>
+                    <ng-template #openBlock>Open</ng-template>
+                    <ng-template #closeBlock>Close</ng-template>
+                </td>
+                <button mat-button class="apply-btn" color="primary" (click)="applyVacancy(element._id)">Apply</button>
+            </tr>
+        </table>
+    </mat-drawer-content> 
+</mat-drawer-container>

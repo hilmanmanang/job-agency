@@ -1,0 +1,107 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer {
+    width: 350px;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+span {
+    margin-right: 20px;
+}
+
+img {
+    height: 150px;
+    width: 250px;
+} 
+
+.form-table {
+    width: 200px;
+}
+
+.apply-center {
+    text-align: center;
+
+}
+
+mat-form-field {
+    width: 320px;
+}
+
+.job-id-table {
+    width: 70px;
+}
+
+.job-title-table {
+    width: 600px;
+}
+
+.company-table {
+    width: 300px;
+}
+
+.state-table {
+    width: 200px;
+}
+
+.close-date-table {
+    width: 200px;
+}
+
+.status-table {
+    width: 150px;
+}
+
+.apply-btn {
+    margin-right: 30px;
+}
+
+.container {
+    margin: 20px 20px 0px 20px;
+    width: 300px;
+    font-size: 16px;
+}
+
+ mat-form-field {
+     width: 250px;
+ }
+
+span {
+    padding-right: 20px;
+}
+
+ 
+.job-id-th {
+    width: 60px;
+}
+
+.job-title-th {
+    width: 350px;
+}
+
+.company-th {
+    width: 200px;
+}
+
+.state-th {
+    width: 120px;
+}
+
+.close-date-th {
+    width: 150px;
+}
+
+.status-th {
+    width: 150px;
+}
+
+.apply-th {
+    margin-right: 100px;
+    text-align: center;
+}
